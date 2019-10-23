@@ -4,13 +4,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Welcome</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
+    <h3 align="center"> WelCome to Assignment 4 Web SITE</h3>
         <table align="center">
             <tr>
-                <td><a href="login">Login</a>
+                <td><a href="login" class="btn btn-success">Login</a>
                 </td>
-                <td><a href="register">Register</a>
+                <td><a href="register" class="btn btn-success">Register</a>
                 </td>
             </tr>
         </table>

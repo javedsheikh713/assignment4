@@ -38,14 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		  .and() .authorizeRequests() .antMatchers("/login").permitAll()
 		  .antMatchers(HttpMethod.GET, "/register/**").permitAll()
+		  .antMatchers(HttpMethod.GET, "/register/**").permitAll()
 		  .antMatchers(HttpMethod.GET, "/home/**").permitAll()
 		  .antMatchers(HttpMethod.GET, "/register/**").permitAll()
 		  .antMatchers(HttpMethod.GET, "/captcha/**").permitAll()
 		  .antMatchers(HttpMethod.POST, "/registerProcess/**").permitAll()
 		  .antMatchers(HttpMethod.POST, "/loginProcess/**").permitAll()
-		  .antMatchers(HttpMethod.GET, "/accountUpdate/**").hasRole("USER")
-		  .antMatchers(HttpMethod.POST, "/updateAccount/**").hasRole("USER")
-		  .antMatchers(HttpMethod.DELETE, "/vehicles/**").hasRole("ADMIN")
+		  .antMatchers(HttpMethod.GET, "/accountUpdate/**").access("hasRole('USER') or hasRole('ADMIN')")
+		  .antMatchers(HttpMethod.POST, "/updateAccount/**").access("hasRole('USER') or hasRole('ADMIN')")
 		  .anyRequest().authenticated() .and() .apply(new JwtConfigurer(jwtToken));
 		  
 		  http.addFilterBefore(new JwtTokenFilter(jwtToken), BasicAuthenticationFilter.class);

@@ -91,5 +91,14 @@ public class RegistrationController {
 			mav.addObject("user", user);
 			return mav;
 		}
+	
+	
+	@RequestMapping(value = "/back", method = RequestMethod.GET)
+	public ModelAndView backToDashBoard(HttpServletRequest request, HttpServletResponse response ,@RequestParam("username") String username) {
+		User user = userService.getUserByName(username);
+		ModelAndView mav = new ModelAndView("welcome");
+			mav.addObject("user", user);
+			return mav;
+		}
 	}
 	

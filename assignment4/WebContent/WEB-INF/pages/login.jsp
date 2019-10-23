@@ -6,11 +6,15 @@
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Login</title>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 			
         </head>
 		
         <body>
             <form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
+            
+            <h3 align="center">User Login :  </h3>
+            
                 <table align="center">
                     <tr>
                         <td>
@@ -46,18 +50,20 @@
 					${error }
 				</td>
 			</tr>
+			
                     <tr>
+					
                         <td></td>
                         <td align="left">
-                            <form:button id="login" name="login">Login</form:button>
+						 <br/>
+                            <form:button id="login" name="login" class="btn btn-success">Login</form:button>
+                        </td>
+						<td>
+						 <br/>
+						<a href="home" class="btn btn-success">Home</a>
                         </td>
                     </tr>
-                    <tr></tr>
-                    <tr>
-                        <td></td>
-                        <td><a href="home">Home</a>
-                        </td>
-                    </tr>
+                    
                 </table>
             </form:form>
             <table align="center">

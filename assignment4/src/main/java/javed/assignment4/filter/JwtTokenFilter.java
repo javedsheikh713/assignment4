@@ -36,17 +36,17 @@ public void doFilter(ServletRequest req, ServletResponse res, FilterChain filter
 		
 		System.out.println("===================  inside filter--------------------");
 		
-		 User u=new User();
-		  u.setUsername("shiza");
-		  u.setRole("ROLE_USER");
-		
-		 String token=this.jwtToken.generateToken(u);
+		/*
+		 * User u=new User(); u.setUsername("shiza"); u.setRole("ROLE_USER");
+		 * 
+		 * String token=this.jwtToken.generateToken(u);
+		 */
 		  
 		HttpServletRequest hreq=(HttpServletRequest) req;
 		
-		
+		 
 	
-		// String token = jwtToken.resolveToken(hreq);
+		 String token = jwtToken.resolveToken(hreq);
 		 
 		  if (token != null && jwtToken.validateToken(token)) {
 			  

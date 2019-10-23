@@ -112,8 +112,11 @@ public class JwtToken {
 	    }
 	    
 	    public String resolveToken(HttpServletRequest req) {
-	    	System.out.println("======== called here");
-	        String bearerToken = req.getHeader("Authorization");
+	    	
+	       // String bearerToken = req.getHeader("Authorization");
+	    	
+	    	String bearerToken =(String) req.getSession().getAttribute("Authorization");
+	        System.out.println("======== called here   "+ bearerToken);
 	        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
 	            return bearerToken.substring(7, bearerToken.length());
 	        }

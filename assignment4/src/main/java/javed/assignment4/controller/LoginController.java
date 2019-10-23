@@ -48,6 +48,7 @@ public class LoginController {
 	    mav = new ModelAndView("welcome");
 	    mav.addObject("user", user);
 	    response.setHeader("Authorization", jwtToken.generateToken(user));
+	    
 	    } else {
 	    mav = new ModelAndView("login");
 	    mav.addObject("message", "Username or Password is wrong!!");
@@ -63,4 +64,7 @@ public class LoginController {
 	    System.out.println("finishhh  j;l ===== ");
 	    return mav;
 	}
+	
+	
+	
 }

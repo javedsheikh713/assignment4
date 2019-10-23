@@ -4,9 +4,13 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Registration</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         </head>
         <body>
             <form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
+            
+            <h3 align="center">User Registration : </h3>
+            
                 <table align="center">
                     
                     <tr>
@@ -60,19 +64,19 @@
                     <tr>
                         <td></td>
                         <td>
-                            <form:button id="register" name="register">Register</form:button>
+                            <form:button id="register" name="register" class="btn btn-success">Register</form:button>
                         </td>
                         
                         <td>
-                            <form:button id="register" name="register">Reset</form:button>
+                            <form:button id="register" name="register" class="btn btn-success">Reset</form:button>
                         </td>
-                    </tr>
-                    <tr></tr>
-                    <tr>
-                        <td></td>
-                        <td><a href="home">Home</a>
+                        
+                         <td>
+                           <a href="home" class="btn btn-success">Home</a>
                         </td>
+                        
                     </tr>
+                                       
                 </table>
             </form:form>
         </body>

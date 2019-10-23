@@ -4,6 +4,7 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Account Update</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         </head>
         <body>
         <script type="text/javascript">
@@ -21,6 +22,8 @@
         
         </script>
             <form:form id="updateForm" modelAttribute="user" action="updateAccount" method="post">
+            <h3 align="center">Update Account :  </h3>
+            
                 <table align="center">
                     
                     <tr>
@@ -83,17 +86,15 @@
                     <tr>
                         <td></td>
                         <td>
-                            <form:button id="update" name="update">Update</form:button>
+                            <form:button id="update" name="update" class="btn btn-success">Update</form:button>
                         </td>
                         
+                         &nbsp;
+                        <td><a href="back?username=${user.getUsername()}" class="btn btn-success">Back</a>
+                        </td>
                         
                     </tr>
-                    <tr></tr>
-                    <tr>
-                        <td></td>
-                        <td><a href="home">Home</a>
-                        </td>
-                    </tr>
+                   
                 </table>
             </form:form>
         </body>
