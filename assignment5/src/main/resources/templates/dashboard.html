@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Dashboard Page</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+   <div class="divdashboard">
+   <div th:if="${user.status = 'SUCCESS'}" class="successmessage" role="alert" th:text="${user?.successMessage}"></div>
+   <br/>
+   <a href="/logout" >Logout <span class="sr-only">(current)</span></a>
+   
+    
+  <a th:href="@{/update(userName=${user.userName})}" style="margin-left: 50%;"> Account Update <span class="sr-only">(current)</span></a>
+   
+      <h1>Welcome Mr/Mrs </h1>
+      <h2 th:utext="${user.userName} " ></h2>
+       
+        <table>
+            <tr>
+               <td>First Name  : </td>
+               <td th:utext="${user.firstName}">...</td>
+               </tr>
+               <tr>
+               <td>User Name  :</td>
+               <td th:utext="${user.userName}">...</td>
+               </tr>
+               <tr>
+               
+               <td>E Mail  :</td>
+               <td th:utext="${user.email}">...</td>
+               </tr>
+               <tr>
+               <td>Role  :</td>
+               <td th:utext="${user.role}">...</td>
+            </tr>
+           
+         </table>
+          </div>  
+   </body>
+    
+</html>

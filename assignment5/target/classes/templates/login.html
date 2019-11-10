@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Login Page</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+
+   
+   <body>
+<div class="divplayer">
+   
+           
+          
+               <form th:action="@{/login}"  th:object="${user}" method="POST">
+             
+             <div th:if="${user.status = 'ERROR'}"  class="errormessage"  role="alert" th:text="${user?.error?.description}"></div>
+              <div th:if="${user.status = 'SUCCESS'}" class="successmessage" role="alert" th:text="${user?.successMessage}"></div>
+                  
+            <table>
+                <tr>
+                    <td colspan="3">
+                            <h2>2. Login Screen</h2>
+                    </td>
+                </tr>
+                <tr height="10"><td></td></tr>
+                <tr>
+                   
+                 <td>  
+                <label for="username">UserName </label>
+                </td> 
+                <td ></td>
+                <td > 
+                   <input type="text" th:field="*{userName}" placeholder="Username" required="true" autofocus="autofocus" /> 
+            </td> 
+            </tr>
+            <tr height="10"><td></td></tr>
+            <tr>
+                    <td>  
+                <label for="password">Password </label>
+            </td> 
+            <td></td>
+            <td> 
+               <input type="password" th:field="*{password}" placeholder="Password" required="true" /> 
+					
+            </td> 
+        </tr>
+        <tr height="10"><td></td></tr>
+        <tr>
+                <td>  
+              
+                <img th:src="@{/captcha}" id="captchaimage"/>
+            </td> 
+            <td>
+            <a href="javascript:;"
+						title="change captcha text"
+						onclick="document.getElementById('captchaimage').src = 'captcha?' + Math.random();  return false">
+							<img  th:src="@{https://cdn3.iconfinder.com/data/icons/flat-icons-web/40/Refresh-48.png}" />
+					</a>
+            </td>
+            <td> 
+                <input type="text" th:field="*{captcha}" placeholder="Enter Captcha" name="captcha" required="true" />
+            </td> 
+        </tr>
+        <tr height="10"><td>
+        
+        </td></tr>
+        <tr>
+            <td></td>
+                <td>  
+                <button  class="buttonControl" type="submit">Login</button>
+                
+                </td>
+                
+                <td>  
+                    &nbsp; &nbsp;
+                     <a href="/register" class="buttonControl">Register <span class="sr-only">(current)</span></a>
+                 <!--   <button  type="button" class="buttonControl">Registration</button> --> 
+                        
+                        </td>
+                </tr>
+        </table>
+           
+           </form>
+          
+      </div>
+
+</body>
+</html>

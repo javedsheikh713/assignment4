@@ -1,0 +1,100 @@
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Register Page</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   
+   <body>
+   <div class="divplayer">
+    <form th:action="@{/register}"  th:object="${user}" method="POST">
+    
+    <div th:if="${user.status = 'ERROR'}" class="errormessage" role="alert" th:text="${user?.error?.description}"></div>
+                    
+            <table>
+                    <tr>
+                        <td colspan="3">
+                                <h2>1. Registration Screen</h2>
+                        </td>
+                    </tr>
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                       
+                            <td>  
+                    <label for="name">Name </label>
+                </td> 
+                <td ></td>
+                <td > 
+                <input type="text" th:field="*{firstName}"  required="true" autofocus="autofocus" /> 
+            </td> 
+        </tr>
+        <tr height="10"><td></td></tr>
+        <tr>
+                <td>   
+                <label for="email">Email </label>
+            </td> 
+            <td ></td>
+            <td >
+               <input type="email" th:field="*{email}"  required="true" autofocus="autofocus" /> 
+                </td>
+        </tr>
+
+                    <tr height="10"><td></td></tr>
+                    <tr>
+                       
+                     <td>  
+                    <label for="username">UserName </label>
+                    </td> 
+                    <td ></td>
+                    <td > 
+                   <input type="text" th:field="*{userName}"  required="true" autofocus="autofocus" />
+                </td> 
+                </tr>
+                <tr height="10"><td></td></tr>
+                <tr>
+                        <td>  
+                    <label for="password">Password </label>
+                </td> 
+                <td></td>
+                <td> 
+                    <input type="password" th:field="*{password}"  required="true" autofocus="autofocus" />
+                </td> 
+            </tr>
+            <tr height="10"><td></td></tr>
+            <tr>
+                    <td>  
+                    <img th:src="@{/captcha}" id="captchaimage"/>
+                </td> 
+                <td>
+                <a href="javascript:;"
+						title="change captcha text"
+						onclick="document.getElementById('captchaimage').src = 'captcha?' + Math.random();  return false">
+							<img  th:src="@{https://cdn3.iconfinder.com/data/icons/flat-icons-web/40/Refresh-48.png}" />
+					</a>
+                </td>
+                <td> 
+                    <input type="text" th:field="*{captcha}" placeholder="Enter Captcha" name="captcha" required="true" />
+                </td> 
+            </tr>
+            <tr height="10"><td></td></tr>
+            <tr>
+                <td></td>
+                    <td style="margin-right: 50px;">  
+                    <button  class="buttonControl" >Register</button>
+                    
+                    </td>
+                    <td>  
+                        &nbsp;&nbsp;
+                       <button  type="reset" class="buttonControl" >Reset</button> 
+                            
+                            </td>
+                    </tr>
+            </table>
+            
+            </form>
+       
+      </div>
+
+      
+   </body>
+   </html>
